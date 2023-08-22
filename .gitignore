@@ -45,3 +45,6 @@ Thumbs.db
 *.wmv
 
 # data files
+images1024x1024.zip
+datasets_prep/dataset/ffhq/**/*.png
+datasets_prep/dataset/ffhq/**/*.jpg
