@@ -228,14 +228,14 @@ def train(rank, gpu, args):
         dataset = torch.utils.data.Subset(train_data, subset)
       
     
-    elif args.dataset == 'celeba_256':
+    elif args.dataset == 'ffhq':
         train_transform = transforms.Compose([
                 transforms.Resize(args.image_size),
                 transforms.RandomHorizontalFlip(),
                 transforms.ToTensor(),
                 transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
             ])
-        dataset = LMDBDataset(root='/dataset/celeba-lmdb', name='celeba', train=True, transform=train_transform)
+        dataset = LMDBDataset(root='/home/work/denoising-diffusion-gan-main/denoising-diffusion-gan-main/datasets_prep/datasets_prep/dataset/ffhq/ffhq-lmdb', name='ffhq', train=True, transform=train_transform)
     
     train_sampler = torch.utils.data.distributed.DistributedSampler(dataset,
                                                                     num_replicas=args.world_size,
@@ -243,7 +243,7 @@ def train(rank, gpu, args):
     data_loader = torch.utils.data.DataLoader(dataset,
                                                batch_size=batch_size,
                                                shuffle=False,
-                                               num_workers=0,
+                                               num_workers=4,
                                                pin_memory=True,
                                                sampler=train_sampler,
                                                drop_last = True)
