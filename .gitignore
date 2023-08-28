@@ -48,3 +48,9 @@ Thumbs.db
 images1024x1024.zip
 datasets_prep/dataset/ffhq/**/*.png
 datasets_prep/dataset/ffhq/**/*.jpg
+data/**/
+data/**/*.tar.gz
+
+
+saved_info/dd_gan/cifar10/ddgan_cifar10_exp1/score_sde/models/__pycache__/**/*.pyc
+saved_info/dd_gan/cifar10/ddgan_cifar10_exp1/*.pth
