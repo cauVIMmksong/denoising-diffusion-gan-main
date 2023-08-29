@@ -236,6 +236,15 @@ def train(rank, gpu, args):
                 transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
             ])
         dataset = LMDBDataset(root='/dataset/celeba-lmdb', name='celeba', train=True, transform=train_transform)
+
+    elif args.dataset == 'celeba64':
+        train_transform = transforms.Compose([
+                transforms.Resize(args.image_size),
+                transforms.RandomHorizontalFlip(),
+                transforms.ToTensor(),
+                transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
+            ])
+        dataset = LMDBDataset(root='/home/work/denoising-diffusion-gan-main/denoising-diffusion-gan-main/data/celeba64_lmdb', name='celeba64', train=True, transform=train_transform)
     
     train_sampler = torch.utils.data.distributed.DistributedSampler(dataset,
                                                                     num_replicas=args.world_size,
