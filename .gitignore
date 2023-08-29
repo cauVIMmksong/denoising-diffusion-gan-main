@@ -51,6 +51,7 @@ datasets_prep/dataset/ffhq/**/*.jpg
 data/**/
 data/**/*.tar.gz
 
+generated_samples/cifar10/**/*.jpg
 
 saved_info/dd_gan/cifar10/ddgan_cifar10_exp1/score_sde/models/__pycache__/**/*.pyc
 saved_info/dd_gan/cifar10/ddgan_cifar10_exp1/*.pth

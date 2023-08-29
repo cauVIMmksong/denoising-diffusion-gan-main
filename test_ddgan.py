@@ -247,7 +247,7 @@ if __name__ == '__main__':
                             help='scale of fourier transform')
     parser.add_argument('--not_use_tanh', action='store_true',default=False)
     
-    #geenrator and training
+    #generator and training
     parser.add_argument('--exp', default='experiment_cifar_default', help='name of experiment')
     parser.add_argument('--real_img_dir', default='./pytorch_fid/cifar10_train_stat.npy', help='directory to real images for FID computation')
 
